@@ -8,11 +8,22 @@ import './styles/styles.css';
 **/
 
 class Runner extends React.Component {
+	
+	constructor() {
+		super();
+		this.state = {
+			ops: true
+		};
+  }
+	
+	onClickButton = (pos) => {
+		this.setState({ops: !this.state.ops});	
+	}
+	
 	render() {
 		return (
-			<button className="Runner">
-				{this.props.name}
-				{this.props.posGen}
+			<button className={'Runner posX'+this.props.gen() + ' posY'+this.props.gen()} onClick={() => this.onClickButton(this.props.gen())}>
+				{this.props.name}{ + this.state.ops ? ' :D' : ' :P'}
 			</button>
 		);
   }
@@ -22,9 +33,7 @@ class Runner extends React.Component {
 class Space extends React.Component {
 
 	generatePos(min, max) {		
-		let range = Math.floor(Math.random() * (max - min + 1)) + min;
-		alert('oi:' + range);
-		return range;
+		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 
 	render() {
@@ -32,8 +41,10 @@ class Space extends React.Component {
 		return (
 			<div className="Space">
 				<Runner 
-					posGen = {() => {this.generatePos(1,4)}}
+					posX = {this.generatePos(1,4)}
+					posY = {this.generatePos(1,4)}
 					name   = {"Me !"}
+					gen = { () => this.generatePos(1,4) }
 				/>
 			</div>
 		);
