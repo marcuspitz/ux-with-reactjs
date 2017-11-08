@@ -10,3 +10,8 @@ If you want a run time build, set to the base folder and:
 cd project_folder
 ### Start node to run time build (don't change the package.json file)
 npm start
+### To compile LESS
+#### set dir
+cd %ROOT_PROJECT%\src\styles
+#### compile
+lessc styles.less styles.css

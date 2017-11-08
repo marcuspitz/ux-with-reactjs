@@ -1,17 +1,47 @@
+/**
+* Less styles
+* @author: Marcus Pitz
+**/
+/**
+* Make slots function
+**/
 body {
   font: 14px "Arial", Futura, sans-serif;
   margin: 15px;
 }
-
 div.Space {
-	border: 2px solid;
-	height: 200px;
-	width: 200px;
+  border: 2px solid;
+  height: 200px;
+  width: 200px;
 }
-
-button.Runner {
-	height: 50px;
-	width: 50px;
-	border: 1px solid;
-	background-color: green;
+.Runner {
+  height: 50px;
+  width: 50px;
+  border: 1px solid;
+  background-color: green;
+  position: relative;
+}
+.posX1 {
+  left: 0px;
+}
+.posY1 {
+  top: 0px;
+}
+.posX2 {
+  left: 50px;
+}
+.posY2 {
+  top: 50px;
+}
+.posX3 {
+  left: 100px;
+}
+.posY3 {
+  top: 100px;
+}
+.posX4 {
+  left: 150px;
+}
+.posY4 {
+  top: 150px;
 }

@@ -1,0 +1,42 @@
+
+/**
+* Less styles
+* @author: Marcus Pitz
+**/
+
+@runnerLength: 50px;
+@spaceSlots: 4;
+
+/**
+* Make slots function
+**/
+.makeSlots(@nSlots, @i: 1) when (@i =< @nSlots) {
+	.posX@{i} {
+		left: (@runnerLength * (@i - 1));
+	}
+	.posY@{i} {
+		top: (@runnerLength * (@i - 1));
+	}
+	.makeSlots(@nSlots, (@i + 1));
+}
+
+body {
+  font: 14px "Arial", Futura, sans-serif;
+  margin: 15px;
+}
+
+div.Space {
+	border: 2px solid;
+	height: @runnerLength * @spaceSlots;
+	width: @runnerLength * @spaceSlots;
+}
+
+.Runner {
+	height: @runnerLength;
+	width: @runnerLength;
+	border: 1px solid;
+	background-color: green;
+	position: relative
+}
+
+.makeSlots(@spaceSlots);

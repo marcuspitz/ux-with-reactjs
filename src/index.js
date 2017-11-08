@@ -16,13 +16,17 @@ class Runner extends React.Component {
 		};
   }
 	
-	onClickButton = (pos) => {
+	onClick = (msg) => alert(msg);
+	
+	onMouseEnter = (pos) => {
 		this.setState({ops: !this.state.ops});	
 	}
 	
 	render() {
 		return (
-			<button className={'Runner posX'+this.props.gen() + ' posY'+this.props.gen()} onClick={() => this.onClickButton(this.props.gen())}>
+			<button className={'Runner posX'+this.props.gen() + ' posY'+this.props.gen()} 
+					onMouseEnter={() => this.onMouseEnter(this.props.gen())} 
+					onClick={()=>this.onClick(this.props.success)}>
 				{this.props.name}{ + this.state.ops ? ' :D' : ' :P'}
 			</button>
 		);
@@ -45,6 +49,7 @@ class Space extends React.Component {
 					posY = {this.generatePos(1,4)}
 					name   = {"Me !"}
 					gen = { () => this.generatePos(1,4) }
+					success = {"Oh my god you click me!"}
 				/>
 			</div>
 		);
